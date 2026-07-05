@@ -1,0 +1,8 @@
+{
+  "name": "konekt-chat-server",
+  "version": "1.0.0",
+  "description": "Serveur temps réel Socket.io pour Konekt",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "socket.io": "^4.7.5" }
+}

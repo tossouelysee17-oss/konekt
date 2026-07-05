@@ -1,0 +1,29 @@
+[2026-07-05 12:46:25] À: tossou@gmail.com | Sujet: Bienvenue sur Konekt
+<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#0f1b3d;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#0f1b3d;padding:40px 20px;">
+    <tr><td align="center">
+      <table width="560" cellpadding="0" cellspacing="0" style="background:#f5f0e0;border-radius:12px;overflow:hidden;">
+        <tr><td style="background:#0f1b3d;padding:24px;text-align:center;">
+          <span style="font-family:Georgia,serif;font-size:28px;color:#c9a84c;letter-spacing:2px;">KONEKT</span>
+        </td></tr>
+        <tr><td style="padding:36px 40px;color:#1a1a1a;">
+          <h1 style="margin:0 0 16px;color:#0f1b3d;font-size:22px;">Bienvenue sur Konekt !</h1>
+          <p style="line-height:1.6;font-size:15px;color:#333;">Bonjour Elysée,<br />
+<br />
+Ton compte a été créé avec succès. Tu peux dès maintenant te connecter et commencer à partager.</p>
+          <p style="text-align:center;margin:32px 0;">
+            <a href="http://localhost/konekt/vues/clients/login.html" style="display:inline-block;background:#c9a84c;color:#0f1b3d;font-weight:bold;padding:14px 28px;border-radius:6px;text-decoration:none;">Se connecter</a>
+          </p>
+          <p style="font-size:12px;color:#777;">Si tu n&#039;es pas à l&#039;origine de cette inscription, ignore simplement ce message.</p>
+        </td></tr>
+        <tr><td style="background:#0f1b3d;padding:16px;text-align:center;color:#c9a84c;font-size:12px;">
+          &copy; 2026 Konekt — Projet PHP/AJAX
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>
+
+----
+

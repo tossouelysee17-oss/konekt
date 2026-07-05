@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><title>Konekt — Amis</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<div id="navbar"></div>
+<div class="container">
+  <div class="grid-3">
+    <aside>
+      <div class="card">
+        <h3>Rechercher</h3>
+        <input id="q" type="text" class="mb-2" placeholder="Nom ou prénom" style="width:100%;padding:10px;background:var(--bg-2);border:1px solid var(--border);color:var(--text);border-radius:6px">
+      </div>
+    </aside>
+
+    <main>
+      <div class="card mb-4">
+        <h2>Invitations reçues</h2>
+        <div id="pending"></div>
+      </div>
+      <div class="card">
+        <h2>Suggestions & utilisateurs</h2>
+        <div id="users"></div>
+      </div>
+    </main>
+
+    <aside>
+      <div class="card">
+        <h3>Mes amis</h3>
+        <div id="myFriends"></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/friends.js"></script>
+<script>
+  Session.requireUser();
+  renderNavbar('amis');
+  Friends.init();
+</script>
+</body></html>

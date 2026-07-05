@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><title>Konekt Admin — Dashboard</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body>
+<div class="admin-shell">
+  <aside id="adminSide" class="admin-side"></aside>
+  <main class="admin-main">
+    <h1>Tableau de bord</h1>
+    <div id="stats" class="stats-grid"></div>
+    <div class="card">
+      <h3>Bienvenue dans le back-office Konekt</h3>
+      <p class="text-muted">Utilise le menu de gauche pour gérer les articles, les utilisateurs
+        et (pour les administrateurs) le staff.</p>
+    </div>
+  </main>
+</div>
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/admin.js"></script>
+<script>renderAdminShell('dashboard'); Admin.loadStats();</script>
+</body></html>

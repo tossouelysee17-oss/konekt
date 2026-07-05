@@ -1,0 +1,168 @@
+/* ==========================================================
+   KONEKT — Feuille de style principale
+   Palette : bleu nuit #0f1b3d · or #c9a84c · crème #f5f0e0
+   ========================================================== */
+
+:root{
+  --bg:        #0b1530;
+  --bg-2:      #0f1b3d;
+  --surface:   #172a55;
+  --surface-2: #1e3a5f;
+  --border:    #24467a;
+  --gold:      #c9a84c;
+  --gold-soft: #e0c26a;
+  --cream:     #f5f0e0;
+  --text:      #eef1f8;
+  --muted:     #a9b3cc;
+  --danger:    #d94c4c;
+  --success:   #4caf7f;
+  --radius:    10px;
+  --shadow:    0 8px 24px rgba(0,0,0,.35);
+  --font-sans: 'Inter', -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-serif:'Georgia', 'Times New Roman', serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-soft)}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:0}
+input,textarea,select{font-family:inherit}
+
+/* ---------- Navbar ---------- */
+.navbar{
+  position:sticky;top:0;z-index:50;
+  background:linear-gradient(180deg,var(--bg-2),var(--bg));
+  border-bottom:1px solid var(--border);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.navbar .brand{
+  font-family:var(--font-serif);color:var(--gold);
+  font-size:24px;letter-spacing:3px;
+}
+.navbar nav{display:flex;gap:6px;flex-wrap:wrap}
+.navbar nav a{
+  color:var(--muted);padding:8px 14px;border-radius:6px;
+  font-size:14px;transition:.15s;
+}
+.navbar nav a:hover,.navbar nav a.active{
+  color:var(--cream);background:var(--surface);
+}
+.navbar .user{display:flex;align-items:center;gap:10px}
+.navbar .user img{
+  width:36px;height:36px;border-radius:50%;
+  border:2px solid var(--gold);object-fit:cover;
+}
+
+/* ---------- Layout ---------- */
+.container{max-width:1200px;margin:0 auto;padding:24px}
+.grid-3{display:grid;grid-template-columns:260px 1fr 300px;gap:24px}
+@media(max-width:1000px){.grid-3{grid-template-columns:1fr}}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+.card h2,.card h3{color:var(--cream);margin-bottom:12px}
+
+/* ---------- Boutons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 18px;border-radius:6px;
+  background:var(--gold);color:#1a1a1a;font-weight:600;font-size:14px;
+  transition:.15s;
+}
+.btn:hover{background:var(--gold-soft);transform:translateY(-1px)}
+.btn.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+.btn.btn-ghost:hover{background:var(--surface-2)}
+.btn.btn-danger{background:var(--danger);color:#fff}
+.btn.btn-sm{padding:6px 12px;font-size:13px}
+.btn.btn-block{width:100%}
+
+/* ---------- Formulaires ---------- */
+.field{margin-bottom:14px}
+.field label{display:block;margin-bottom:6px;color:var(--muted);font-size:13px}
+.field input,.field textarea,.field select{
+  width:100%;padding:11px 14px;
+  background:var(--bg-2);color:var(--text);
+  border:1px solid var(--border);border-radius:6px;
+  transition:.15s;
+}
+.field input:focus,.field textarea:focus{
+  outline:0;border-color:var(--gold);
+}
+textarea{min-height:80px;resize:vertical}
+
+/* ---------- Article (post) ---------- */
+.post{margin-bottom:18px}
+.post-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.post-head img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
+.post-head .name{color:var(--cream);font-weight:600}
+.post-head .date{color:var(--muted);font-size:12px}
+.post .content{white-space:pre-wrap;color:var(--text)}
+.post .cover{margin-top:12px;border-radius:8px;max-height:500px;object-fit:cover}
+.post .actions{
+  display:flex;gap:6px;margin-top:14px;padding-top:14px;
+  border-top:1px solid var(--border);
+}
+.post .actions button{
+  background:transparent;color:var(--muted);
+  padding:8px 14px;border-radius:6px;font-size:14px;
+  display:flex;align-items:center;gap:6px;
+}
+.post .actions button:hover{background:var(--surface-2);color:var(--cream)}
+.post .actions button.on-like{color:var(--gold)}
+.post .actions button.on-dislike{color:var(--danger)}
+
+.comments{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:none}
+.comments.open{display:block}
+.comment{display:flex;gap:10px;margin-bottom:10px}
+.comment img{width:32px;height:32px;border-radius:50%;object-fit:cover}
+.comment .bubble{background:var(--surface-2);padding:8px 12px;border-radius:12px;flex:1}
+.comment .bubble .who{font-size:13px;color:var(--gold);font-weight:600}
+.comment .bubble .txt{font-size:14px}
+.comment-form{display:flex;gap:8px;margin-top:8px}
+.comment-form input{flex:1}
+
+/* ---------- Sidebar (accueil) ---------- */
+.sidebar-mini h3{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.friend-item{
+  display:flex;align-items:center;gap:10px;
+  padding:8px;border-radius:6px;
+  transition:.15s;color:var(--text);
+}
+.friend-item:hover{background:var(--surface-2)}
+.friend-item img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.friend-item .n{font-size:14px}
+
+/* ---------- Composer (nouvelle publi) ---------- */
+.composer{margin-bottom:18px}
+.composer textarea{background:var(--bg-2)}
+.composer-actions{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.composer-preview{margin-top:10px;max-height:200px;border-radius:6px}
+
+/* ---------- Alertes ---------- */
+.alert{padding:10px 14px;border-radius:6px;margin-bottom:12px;font-size:14px}
+.alert-error{background:rgba(217,76,76,.15);color:#f5b5b5;border:1px solid var(--danger)}
+.alert-success{background:rgba(76,175,127,.15);color:#a9e0c3;border:1px solid var(--success)}
+
+/* ---------- Utilitaires ---------- */
+.text-muted{color:var(--muted)}
+.text-center{text-align:center}
+.mt-2{margin-top:8px}.mt-4{margin-top:16px}.mt-6{margin-top:24px}
+.mb-2{margin-bottom:8px}.mb-4{margin-bottom:16px}
+.flex{display:flex}.between{justify-content:space-between}
+.gap-2{gap:8px}.gap-4{gap:16px}
+.hidden{display:none!important}

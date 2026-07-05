@@ -1,0 +1,47 @@
+/* Back-office */
+.admin-shell{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+@media(max-width:900px){.admin-shell{grid-template-columns:1fr}}
+
+.admin-side{
+  background:linear-gradient(180deg,#0b1530,#0f1b3d);
+  border-right:1px solid var(--border);
+  padding:24px 12px;display:flex;flex-direction:column;gap:4px;
+}
+.admin-side .brand{
+  font-family:var(--font-serif);color:var(--gold);
+  font-size:22px;letter-spacing:3px;padding:0 12px 20px;
+  border-bottom:1px solid var(--border);margin-bottom:12px;
+}
+.admin-side a{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:6px;color:var(--muted);
+  font-size:14px;transition:.15s;
+}
+.admin-side a:hover{background:var(--surface);color:var(--cream)}
+.admin-side a.active{background:var(--surface-2);color:var(--gold)}
+.admin-side .role-tag{
+  margin-top:auto;padding:10px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:12px;text-align:center;
+}
+
+.admin-main{padding:32px;background:var(--bg)}
+.admin-main h1{color:var(--cream);font-size:24px;margin-bottom:20px}
+
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:32px}
+.stat{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;
+}
+.stat .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.stat .value{color:var(--gold);font-size:32px;font-weight:700;margin-top:6px}
+
+table.data{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--radius);overflow:hidden}
+table.data th,table.data td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--border);font-size:14px}
+table.data th{background:var(--bg-2);color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+table.data tr:hover td{background:var(--surface-2)}
+table.data td img{width:32px;height:32px;border-radius:50%;object-fit:cover;display:inline-block;vertical-align:middle;margin-right:8px}
+
+.role-badge{padding:3px 10px;border-radius:12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.role-badge.admin{background:rgba(201,168,76,.2);color:var(--gold)}
+.role-badge.moderator{background:rgba(76,175,127,.2);color:#a9e0c3}
+.role-badge.user{background:rgba(255,255,255,.08);color:var(--muted)}

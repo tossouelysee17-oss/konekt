@@ -1,0 +1,28 @@
+/* Pages d'authentification */
+.auth-wrap{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+}
+@media(max-width:900px){.auth-wrap{grid-template-columns:1fr}.auth-hero{display:none}}
+
+.auth-hero{
+  background:
+    radial-gradient(1200px 500px at 30% 20%, rgba(201,168,76,.18), transparent 60%),
+    linear-gradient(180deg,#0b1530,#0f1b3d 60%,#0b1530);
+  padding:60px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  border-right:1px solid var(--border);
+}
+.auth-hero .logo{font-family:var(--font-serif);color:var(--gold);font-size:32px;letter-spacing:4px}
+.auth-hero h1{font-size:42px;line-height:1.15;color:var(--cream);margin:24px 0 12px;font-weight:600}
+.auth-hero p{color:var(--muted);font-size:16px;max-width:420px}
+.auth-hero .foot{color:var(--muted);font-size:13px}
+
+.auth-form{
+  display:flex;align-items:center;justify-content:center;
+  padding:40px;background:var(--bg);
+}
+.auth-form form{width:100%;max-width:400px}
+.auth-form h2{color:var(--cream);font-size:26px;margin-bottom:6px}
+.auth-form .sub{color:var(--muted);margin-bottom:24px;font-size:14px}
+.auth-form .switch{margin-top:20px;text-align:center;color:var(--muted);font-size:14px}

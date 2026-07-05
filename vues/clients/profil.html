@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><title>Konekt — Profil</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<div id="navbar"></div>
+<div class="container">
+  <div class="grid-3">
+    <aside></aside>
+    <main>
+      <div class="card mb-4" id="header"></div>
+
+      <div id="ownEdit" class="hidden">
+        <div class="card mb-4">
+          <h2>Modifier mes informations</h2>
+          <div id="editMsg"></div>
+          <form id="editForm">
+            <div class="flex gap-2">
+              <div class="field" style="flex:1"><label>Prénom</label><input name="prenom" required></div>
+              <div class="field" style="flex:1"><label>Nom</label><input name="nom" required></div>
+            </div>
+            <div class="field"><label>Bio</label><textarea name="bio"></textarea></div>
+            <div class="field">
+              <label>Photo de profil</label>
+              <input type="file" id="avatarFile" accept="image/*">
+            </div>
+            <button class="btn" type="submit">Enregistrer</button>
+          </form>
+        </div>
+        <div class="card">
+          <h2>Changer mon mot de passe</h2>
+          <div id="pwdMsg"></div>
+          <form id="pwdForm">
+            <div class="field"><label>Mot de passe actuel</label><input type="password" name="ancien" required></div>
+            <div class="field"><label>Nouveau mot de passe</label><input type="password" name="nouveau" required minlength="6"></div>
+            <button class="btn" type="submit">Mettre à jour</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <aside></aside>
+  </div>
+</div>
+
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/profile.js"></script>
+<script>
+  Session.requireUser();
+  renderNavbar('profil');
+  Profile.init();
+</script>
+</body></html>

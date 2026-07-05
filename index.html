@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Konekt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;
+    background:radial-gradient(1200px 500px at 30% 20%, rgba(201,168,76,.15), transparent 60%), linear-gradient(180deg,#0b1530,#0f1b3d 60%,#0b1530);}
+  .hero-inner{max-width:640px}
+  .hero .logo{font-family:var(--font-serif);color:var(--gold);font-size:44px;letter-spacing:6px;margin-bottom:20px}
+  .hero h1{font-size:48px;color:var(--cream);line-height:1.1;margin-bottom:16px;font-weight:600}
+  .hero p{color:var(--muted);font-size:18px;margin-bottom:32px}
+  .hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="logo">KONEKT</div>
+    <h1>Un réseau social sobre, pensé pour de vraies conversations.</h1>
+    <p>Publications, amis, chat en temps réel — tout ce dont tu as besoin, rien de plus.</p>
+    <div class="cta">
+      <a class="btn" href="vues/clients/register.html">Créer un compte</a>
+      <a class="btn btn-ghost" href="vues/clients/login.html">Se connecter</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/session.js"></script>
+<script>
+  // Si déjà connecté → accueil
+  if (Session.get()) location.href = 'vues/clients/accueil.html';
+</script>
+</body>
+</html>

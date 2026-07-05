@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><title>Konekt — Chat</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/chat.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="chat-shell">
+  <aside class="chat-side">
+    <div class="search">
+      <input id="chatSearch" type="text" placeholder="Rechercher un ami…">
+      <div id="searchResults" class="mt-2"></div>
+    </div>
+    <div id="chatList" class="chat-list"></div>
+  </aside>
+
+  <section class="chat-main">
+    <div id="chatHead" class="empty-chat">Sélectionne une conversation</div>
+    <div id="chatBody" class="chat-body hidden"></div>
+    <form id="chatForm" class="chat-input hidden">
+      <label class="file">📎<input type="file" id="chatImage" accept="image/*"></label>
+      <input type="text" id="chatText" placeholder="Écris un message…" autocomplete="off">
+      <button class="btn" type="submit">Envoyer</button>
+    </form>
+  </section>
+</div>
+
+<!-- Socket.io est chargé depuis le serveur Node (démarrer node chat-server/server.js) -->
+<script src="http://localhost:3001/socket.io/socket.io.js" onerror="console.warn('Socket.io indisponible — mode polling')"></script>
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/chat.js"></script>
+<script>
+  Session.requireUser();
+  renderNavbar('chat');
+  Chat.init();
+</script>
+</body></html>

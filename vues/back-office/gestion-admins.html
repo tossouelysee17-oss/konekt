@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><title>Konekt Admin — Staff</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body>
+<div class="admin-shell">
+  <aside id="adminSide" class="admin-side"></aside>
+  <main class="admin-main">
+    <h1>Administrateurs & Modérateurs</h1>
+
+    <div class="card mb-4">
+      <h3>Créer un compte staff</h3>
+      <form onsubmit="Admin.createStaff(event)">
+        <div class="flex gap-2">
+          <div class="field" style="flex:1"><label>Prénom</label><input name="prenom" required></div>
+          <div class="field" style="flex:1"><label>Nom</label><input name="nom" required></div>
+        </div>
+        <div class="flex gap-2">
+          <div class="field" style="flex:2"><label>Email</label><input type="email" name="email" required></div>
+          <div class="field" style="flex:1">
+            <label>Rôle</label>
+            <select name="role">
+              <option value="moderator">Modérateur</option>
+              <option value="admin">Administrateur</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Mot de passe temporaire</label><input type="password" name="password" required minlength="6"></div>
+        <button class="btn">Créer</button>
+      </form>
+    </div>
+
+    <table class="data">
+      <thead><tr><th>ID</th><th>Nom</th><th>Email</th><th>Rôle</th><th></th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </main>
+</div>
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/admin.js"></script>
+<script>renderAdminShell('admins'); Admin.loadStaff();</script>
+</body></html>

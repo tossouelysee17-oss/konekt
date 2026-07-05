@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><title>Konekt Admin — Articles</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body>
+<div class="admin-shell">
+  <aside id="adminSide" class="admin-side"></aside>
+  <main class="admin-main">
+    <h1>Gestion des articles</h1>
+    <table class="data">
+      <thead><tr><th>ID</th><th>Auteur</th><th>Contenu</th><th>Date</th><th></th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </main>
+</div>
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/admin.js"></script>
+<script>renderAdminShell('articles'); Admin.loadArticles();</script>
+</body></html>

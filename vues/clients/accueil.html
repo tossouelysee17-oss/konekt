@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><title>Konekt — Accueil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="container">
+  <div class="grid-3">
+    <aside>
+      <div class="card sidebar-mini">
+        <h3>Amis</h3>
+        <div id="friendsMini" class="text-muted" style="font-size:14px">Chargement…</div>
+      </div>
+    </aside>
+
+    <main>
+      <!-- Composer -->
+      <div class="card composer">
+        <textarea id="postText" placeholder="Quoi de neuf ?"></textarea>
+        <img id="postPreview" class="composer-preview hidden">
+        <div class="composer-actions">
+          <label class="btn btn-ghost btn-sm">
+            📷 Ajouter une image
+            <input type="file" id="postImage" accept="image/*" hidden>
+          </label>
+          <button id="btnPublish" class="btn">Publier</button>
+        </div>
+      </div>
+
+      <div id="feed"></div>
+    </main>
+
+    <aside>
+      <div class="card sidebar-mini">
+        <h3>Invitations en attente</h3>
+        <div id="pendingMini" class="text-muted" style="font-size:14px">Aucune invitation</div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/feed.js"></script>
+<script>
+  Session.requireUser();
+  renderNavbar('accueil');
+  Feed.init();
+</script>
+</body>
+</html>

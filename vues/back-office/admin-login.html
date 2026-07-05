@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><title>Konekt Admin — Connexion</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/auth.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <aside class="auth-hero">
+    <div class="logo">KONEKT · ADMIN</div>
+    <div><h1>Espace de gestion</h1><p>Réservé aux modérateurs et administrateurs.</p></div>
+    <div class="foot">© 2026</div>
+  </aside>
+  <main class="auth-form">
+    <form id="fLogin">
+      <h2>Back-office</h2><p class="sub">Utilise ton compte staff.</p>
+      <div id="msg"></div>
+      <div class="field"><label>Email</label><input type="email" name="email" required></div>
+      <div class="field"><label>Mot de passe</label><input type="password" name="password" required></div>
+      <button class="btn btn-block" type="submit">Connexion</button>
+      <p class="switch"><a href="../clients/login.html">← Retour au site</a></p>
+    </form>
+  </main>
+</div>
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script>
+document.getElementById('fLogin').onsubmit = async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('msg');
+  try {
+    const r = await api('auth.php?action=admin-login', { method:'POST',
+      body:{ email:e.target.email.value, password:e.target.password.value }});
+    Session.set(r.user);
+    location.href = 'dashboard.html';
+  } catch (err) {
+    msg.innerHTML = '<div class="alert alert-error">'+esc(err.message)+'</div>';
+  }
+};
+</script>
+</body></html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Konekt — Inscription</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/auth.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <aside class="auth-hero">
+    <div class="logo">KONEKT</div>
+    <div>
+      <h1>Rejoins la communauté.</h1>
+      <p>Crée ton compte en quelques secondes et commence à publier, commenter et discuter.</p>
+    </div>
+    <div class="foot">© 2026 · Projet PHP / AJAX</div>
+  </aside>
+
+  <main class="auth-form">
+    <form id="regForm">
+      <h2>Créer un compte</h2>
+      <p class="sub">Un email de bienvenue te sera envoyé.</p>
+      <div id="msg"></div>
+
+      <div class="flex gap-2">
+        <div class="field" style="flex:1"><label>Prénom</label><input name="prenom" required></div>
+        <div class="field" style="flex:1"><label>Nom</label><input name="nom" required></div>
+      </div>
+      <div class="field"><label>Email</label><input type="email" name="email" required></div>
+      <div class="field"><label>Mot de passe (6 caractères min.)</label><input type="password" name="password" required minlength="6"></div>
+
+      <button class="btn btn-block" type="submit">M'inscrire</button>
+      <p class="switch">Déjà inscrit ? <a href="login.html">Se connecter</a></p>
+    </form>
+  </main>
+</div>
+
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script>
+document.getElementById('regForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target, msg = document.getElementById('msg');
+  msg.innerHTML = '';
+  try {
+    await api('auth.php?action=register', {
+      method: 'POST',
+      body: {
+        nom: f.nom.value, prenom: f.prenom.value,
+        email: f.email.value, password: f.password.value
+      }
+    });
+    msg.innerHTML = '<div class="alert alert-success">Compte créé ! Redirection…</div>';
+    setTimeout(() => window.location.href = 'login.html', 1200);
+  } catch (err) {
+    msg.innerHTML = '<div class="alert alert-error">' + esc(err.message) + '</div>';
+  }
+});
+</script>
+</body>
+</html>

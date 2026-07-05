@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Konekt — Connexion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/auth.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <aside class="auth-hero">
+    <div class="logo">KONEKT</div>
+    <div>
+      <h1>Retrouve tes amis, partage tes moments.</h1>
+      <p>Un réseau social sobre, sans distraction — pensé pour de vraies conversations.</p>
+    </div>
+    <div class="foot">© 2026 · Projet PHP / AJAX</div>
+  </aside>
+
+  <main class="auth-form">
+    <form id="loginForm">
+      <h2>Se connecter</h2>
+      <p class="sub">Content de te revoir sur Konekt.</p>
+      <div id="msg"></div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="field">
+        <label>Mot de passe</label>
+        <input type="password" name="password" required>
+      </div>
+
+      <button class="btn btn-block" type="submit">Connexion</button>
+
+      <p class="switch">
+        <a href="forgot.html">Mot de passe oublié ?</a>
+      </p>
+      <p class="switch">
+        Pas encore de compte ? <a href="register.html">Créer un compte</a>
+      </p>
+      <p class="switch text-muted" style="font-size:12px">
+        Admin ? <a href="../back-office/admin-login.html">Accès back-office</a>
+      </p>
+    </form>
+  </main>
+</div>
+
+<script src="../../assets/js/session.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target;
+  const msg = document.getElementById('msg');
+  msg.innerHTML = '';
+  try {
+    const r = await api('auth.php?action=login', {
+      method: 'POST',
+      body: { email: f.email.value, password: f.password.value }
+    });
+    Session.set(r.user);
+    window.location.href = 'accueil.html';
+  } catch (err) {
+    msg.innerHTML = '<div class="alert alert-error">' + esc(err.message) + '</div>';
+  }
+});
+</script>
+</body>
+</html>
