@@ -10,7 +10,7 @@ ________________________________________________________________________
 | # | Nom & Prénom              | Rôle sur le projet                   |
 |---|---------------------------|--------------------------------------|
 | 1 | TOSSOU Elysée             | Fondations & Authentification        |
-| 2 | de SOUZA Steve            | Fil d'articles, likes & commentaires |
+| 2 | de SOUZA Steve comlan           | Fil d'articles, likes & commentaires |
 | 3 | ALLOGNON Narcisse         | Amis, profil & chat                  |
 | 4 | GANMANDOUALO Destiny      | Back-office (dashboard, gestion)     |
 |___|___________________________|______________________________________|
