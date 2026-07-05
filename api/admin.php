@@ -1,5 +1,8 @@
 <?php
-// api/admin.php — actions back-office (modérateur & administrateur)
+//Partie 4 : Back-office
+
+//Destiny// Rôle: Gestion admins, utilisateur, articles, stats
+
 require_once __DIR__ . '/config/db.php';
 require_once __DIR__ . '/helpers/response.php';
 
